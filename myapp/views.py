@@ -6,6 +6,11 @@ MODEL_URL = "hectordiazgomez/nllb-spa-awa-v3"
 model = AutoModelForSeq2SeqLM.from_pretrained(MODEL_URL)
 tokenizer = NllbTokenizer.from_pretrained(MODEL_URL)
 
+@require_GET
+def get_details(request):
+    if request.method == "GET":
+        return JsonResponse({"Hola": "Api funcionando"})
+
 def fix_tokenizer(tokenizer, new_lang='agr_Latn'):
     old_len = len(tokenizer) - int(new_lang in tokenizer.added_tokens_encoder)
     tokenizer.lang_code_to_id[new_lang] = old_len - 1
