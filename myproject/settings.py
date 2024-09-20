@@ -10,7 +10,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-708zu^z457kndy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'False'
 
-ALLOWED_HOSTS = ["149.28.245.228", "sperare.my-coolcloud-com"] 
+ALLOWED_HOSTS = ["*"] 
 
 INSTALLED_APPS = [
     'django.contrib.admin',
