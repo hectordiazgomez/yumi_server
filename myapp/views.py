@@ -11,6 +11,13 @@ def get_details(request):
     if request.method == "GET":
         return JsonResponse({"Hola": "Api funcionando"})
 
+@require_GET
+def math_operation(request):
+    num1 = int(request.GET.get('num1', 0))
+    num2 = int(request.GET.get('num2', 0))
+    result = num1 + num2
+    return JsonResponse({'result': result})
+
 def fix_tokenizer(tokenizer, new_lang='agr_Latn'):
     old_len = len(tokenizer) - int(new_lang in tokenizer.added_tokens_encoder)
     tokenizer.lang_code_to_id[new_lang] = old_len - 1
