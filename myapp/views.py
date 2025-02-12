@@ -25,7 +25,7 @@ def initialize_mpn(lang):
     ]
     return mpn
 
-cred = credentials.Certificate('files/secrets.json')
+cred = credentials.Certificate('')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -36,7 +36,7 @@ session = boto3.Session(
     region_name=''
 )
 
-def save_to_s3(model, tokenizer, path, bucket_name='gaiacloud-one'): 
+def save_to_s3(model, tokenizer, path, bucket_name='#Name goes here'): 
     s3 = session.client('s3')  
 
     model_path = f"models/{path}/pytorch_model.bin"
